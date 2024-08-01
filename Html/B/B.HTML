@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+
+<title>from</title>
+<body>
+	<form id="myForm" onsubmit="showPopup(event)">
+		<pre>
+		First Name:<input type="text" name="First_Name" id="First_Name"  placeholder="Enter First Name" maxlength="20" minlength="3" required/>
+		Last Name:<input type="text" name="Last_Name" id="Last_Name"  placeholder="Enter last Name" maxlength="20" minlength="3" required/><br>
+		DOB:<input type="date" name="DOB"  id="DOB" required /><br>
+		Country:<select id="Country"required>
+			<option>INDIA</option>
+			<option>UK</option>
+			<option>USA</option>
+			<option>AFRICA</option>
+			<option>PAKISTAN</option>
+			<option>NEPAL</option>
+		</select>
+		Gender:<input type="radio" name="Gender" value="male"/>Male
+		<input type="radio" name="Gender" value="female"/>Female
+		<input type="radio" name="Gender" value="other"/>Other<br>
+		Profession:<input type="text" name="Profession" id="Profession" placeholder="Enter your Profession" required/>
+		Email:<input type="email" name="Email" id="Email" placeholder="Enter your Email" required>
+		Mobile:<input type="tel" name="Mobile" id="Mobile" pattern="[0-9]{10}" placeholder="Enter Mobile Number"required/><br>
+		<input type="submit" Value="SUBMIT"/>
+		<input type="reset" value="RESET"/>
+ <script>
+        function showPopup(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Collect form data
+            const form = document.getElementById('myForm');
+            const formData = new FormData(form);
+            let output = '';
+
+            for (const [key, value] of formData.entries()) {
+                output += `${key}: ${value}\n`;
+            }
+
+            // Display form data in a popup
+            alert(`Form data:\n${output}`);
+
+            // Reset the form
+            form.reset();
+        }
+    </script>
